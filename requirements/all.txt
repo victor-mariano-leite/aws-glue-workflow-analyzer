@@ -1,0 +1,6 @@
+-r build.txt
+-r check.txt
+-r test.txt
+-r docs.txt
+boto3==1.33.*
+rich[all]==13.7.*
