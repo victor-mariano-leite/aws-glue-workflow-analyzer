@@ -2,9 +2,9 @@ import pytest
 
 from aws_glue_workflow_analyzer.exceptions import (
     APIRequestError,
-    ConnectionError,
     CredentialsNotFoundError,
     WorkflowAnalyzerError,
+    WorkflowConnectionError,
 )
 
 
@@ -55,9 +55,9 @@ def test_api_request_error_custom_message():
 
 
 def test_connection_error_default_message():
-    """Test ConnectionError with the default message."""
-    with pytest.raises(ConnectionError) as exc_info:
-        raise ConnectionError()
+    """Test WorkflowConnectionError with the default message."""
+    with pytest.raises(WorkflowConnectionError) as exc_info:
+        raise WorkflowConnectionError()
 
     assert (
         str(exc_info.value)
@@ -66,8 +66,8 @@ def test_connection_error_default_message():
 
 
 def test_connection_error_custom_message():
-    """Test ConnectionError with a custom message."""
-    with pytest.raises(ConnectionError) as exc_info:
-        raise ConnectionError("Custom message for connection error.")
+    """Test WorkflowConnectionError with a custom message."""
+    with pytest.raises(WorkflowConnectionError) as exc_info:
+        raise WorkflowConnectionError("Custom message for connection error.")
 
     assert str(exc_info.value) == "Custom message for connection error."

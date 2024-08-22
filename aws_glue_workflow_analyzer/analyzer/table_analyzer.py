@@ -47,7 +47,7 @@ class TableAnalyzer:
             affected_tables = self._extract_tables_from_nodes(graph, failed_nodes)
             return list(affected_tables)
         except ClientError as e:
-            raise APIRequestError(f"Failed to retrieve affected tables: {e}")
+            raise APIRequestError(f"Failed to retrieve affected tables: {e}") from e
 
     def _dfs_collect_failed_nodes(
         self, graph: Dict[str, Any], failure_node_id: str

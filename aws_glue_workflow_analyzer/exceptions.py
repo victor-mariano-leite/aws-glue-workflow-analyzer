@@ -3,8 +3,6 @@ class WorkflowAnalyzerError(Exception):
     Base class for exceptions in this module.
     """
 
-    pass
-
 
 class CredentialsNotFoundError(WorkflowAnalyzerError):
     """
@@ -31,7 +29,7 @@ class APIRequestError(WorkflowAnalyzerError):
         super().__init__(self.message)
 
 
-class ConnectionError(WorkflowAnalyzerError):
+class WorkflowConnectionError(WorkflowAnalyzerError):
     """
     Raised when a connection to AWS services cannot be established.
     """

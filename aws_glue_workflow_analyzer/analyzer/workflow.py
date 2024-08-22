@@ -77,4 +77,4 @@ class GlueWorkflowAnalyzer:
             return all_step_data
         except (ClientError, APIRequestError) as e:
             logger.error(f"Failed to analyze workflows: {e}")
-            raise APIRequestError(f"Failed to analyze workflows: {e}")
+            raise APIRequestError(f"Failed to analyze workflows: {e}") from e

@@ -114,4 +114,4 @@ class StepDetailsCollector:
             )
             raise APIRequestError(
                 f"Failed to gather step execution details for {workflow_name}, node ID: {node['Id']}: {e}"
-            )
+            ) from e

@@ -11,6 +11,8 @@ def paginate_boto3(
     ----------
     callable_func : Callable[..., Dict[str, Any]]
         The function to call, typically a Boto3 client method that returns paginated results.
+    dict_key : str
+        The key in the response dictionary that contains the list of items to return.
     kwargs : dict
         The parameters to pass to the callable function.
 

@@ -74,4 +74,4 @@ class WorkflowRunRetriever:
             logger.error(f"Failed to retrieve workflow runs for {workflow_name}: {e}")
             raise APIRequestError(
                 f"Failed to retrieve workflow runs for {workflow_name}: {e}"
-            )
+            ) from e

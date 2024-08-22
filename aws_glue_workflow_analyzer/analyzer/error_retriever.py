@@ -82,4 +82,4 @@ class ErrorContextRetriever:
             logger.error(f"Failed to retrieve log events from CloudWatch Logs: {e}")
             raise APIRequestError(
                 f"Failed to retrieve log events from CloudWatch Logs: {e}"
-            )
+            ) from e

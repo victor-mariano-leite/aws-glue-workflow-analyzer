@@ -126,7 +126,7 @@ The AWS Glue Workflow Analyzer includes robust error handling:
 
 - **CredentialsNotFoundError**: Raised when AWS credentials are missing or incomplete.
 - **APIRequestError**: Raised when an API request to AWS services fails.
-- **ConnectionError**: Raised when a connection to AWS services cannot be established.
+- **WorkflowConnectionError**: Raised when a connection to AWS services cannot be established.
 
 These custom exceptions ensure that errors are clearly communicated, making it easier to diagnose and fix issues.
 

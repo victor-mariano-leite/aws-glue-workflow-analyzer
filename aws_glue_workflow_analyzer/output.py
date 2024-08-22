@@ -17,7 +17,7 @@ def save_to_json(data: List[Dict[str, Any]], file_path: str):
         The file path where the results should be saved.
     """
     try:
-        with open(file_path, "w") as outfile:
+        with open(file_path, "w", encoding="utf-8") as outfile:
             json.dump(data, outfile, indent=4)
         logger.info(f"Analysis results saved to {file_path}")
     except IOError as e:
@@ -38,7 +38,7 @@ def save_to_csv(data: List[Dict[str, Any]], file_path: str):
     try:
         if data:
             keys = data[0].keys()
-            with open(file_path, "w", newline="") as output_file:
+            with open(file_path, "w", encoding="utf-8", newline="") as output_file:
                 dict_writer = csv.DictWriter(output_file, fieldnames=keys)
                 dict_writer.writeheader()
                 dict_writer.writerows(data)

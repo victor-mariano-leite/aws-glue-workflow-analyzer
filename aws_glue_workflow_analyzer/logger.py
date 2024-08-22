@@ -16,19 +16,22 @@ def set_logger():
     rich.console.Console
         The console instance.
     """
-    console = Console()
-    logger = logging.getLogger("workflow_analyzer")
-    logger.propagate = False
+    rich_console = Console()
+    rich_logger = logging.getLogger("workflow_analyzer")
+    rich_logger.propagate = False
 
     log_level = os.getenv("LOG_LEVEL", "INFO").upper()
-    logger.setLevel(log_level)
+    rich_logger.setLevel(log_level)
 
     rich_handler = RichHandler(
-        console=console, show_time=True, show_path=True, tracebacks_show_locals=True
+        console=rich_console,
+        show_time=True,
+        show_path=True,
+        tracebacks_show_locals=True,
     )
-    logger.addHandler(rich_handler)
+    rich_logger.addHandler(rich_handler)
 
-    return logger, console
+    return rich_logger, rich_console
 
 
 logger, console = set_logger()

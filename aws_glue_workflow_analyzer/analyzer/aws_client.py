@@ -29,9 +29,9 @@ class AWSClientManager:
             self.glue_client = boto3.client("glue")
             self.cloudwatch_logs_client = boto3.client("logs")
             logger.info("AWS Glue and CloudWatch clients initialized successfully.")
-        except (NoCredentialsError, PartialCredentialsError):
+        except (NoCredentialsError, PartialCredentialsError) as e:
             logger.error("AWS credentials are missing or incomplete.")
-            raise CredentialsNotFoundError()
-        except EndpointConnectionError:
+            raise CredentialsNotFoundError() from e
+        except EndpointConnectionError as e:
             logger.error("Could not connect to AWS services.")
-            raise ConnectionError()
+            raise ConnectionError() from e

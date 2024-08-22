@@ -28,8 +28,6 @@ def main():
                 console.print_json(data=result)
     except WorkflowAnalyzerError as e:
         logger.error(f"An error occurred during workflow analysis: {e}")
-    except Exception as e:
-        logger.error(f"An unexpected error occurred: {e}")
 
 
 if __name__ == "__main__":
