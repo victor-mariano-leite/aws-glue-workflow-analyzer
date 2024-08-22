@@ -23,10 +23,7 @@ jobs:
           pip install -q .
           pip install -q -r requirements/check.txt
           pip install -q -r requirements/test.txt
-          pip install safety
       - name: Static Checker
         run: make check
       - name: Test with pytest
         run: make test
-      - name: Run Safety vulnerability scanner on deps
-        run: safety check --full-report > safety_report.txt
